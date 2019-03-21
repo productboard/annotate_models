@@ -4,6 +4,7 @@ ruby '>= 2.4.0'
 
 gem 'activerecord', '>= 4.2.5', '< 6', require: false
 gem 'rake', require: false
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
 group :development do
   gem 'bump'
