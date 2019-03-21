@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'annotate/version'
 
 Gem::Specification.new do |s|
-  s.name = 'annotate'
+  s.name = 'pb_annotate'
   s.version = Annotate.version
 
   s.required_ruby_version = '>= 2.4.0'
