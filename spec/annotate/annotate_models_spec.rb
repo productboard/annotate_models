@@ -914,6 +914,27 @@ EOS
       EOS
     end
 
+    describe 'classified_sort_updated option' do
+      mocked_columns_without_id = [
+        [:active, :boolean, { limit: 1 }],
+        [:name, :string, { limit: 50 }],
+        [:notes, :text, { limit: 55 }]
+      ]
+
+      when_called_with classified_sort: 'yes',
+                       with_columns: mocked_columns_without_id, returns:
+        <<-EOS.strip_heredoc
+        # Schema Info
+        #
+        # Table name: users
+        #
+        #  active :boolean          not null
+        #  name   :string(50)       not null
+        #  notes  :text(55)         not null
+        #
+      EOS
+    end
+
     describe 'with_comment option' do
       mocked_columns_with_comment = [
         [:id,         :integer, { limit: 8,  comment: 'ID' }],

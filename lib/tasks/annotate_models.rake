@@ -40,6 +40,7 @@ task annotate_models: :environment do
   options[:sort] = Annotate.true?(ENV['sort'])
   options[:force] = Annotate.true?(ENV['force'])
   options[:classified_sort] = Annotate.true?(ENV['classified_sort'])
+  options[:classified_sort_updated] = Annotate.true?(ENV['classified_sort_updated'])
   options[:trace] = Annotate.true?(ENV['trace'])
   options[:wrapper_open] = Annotate.fallback(ENV['wrapper_open'], ENV['wrapper'])
   options[:wrapper_close] = Annotate.fallback(ENV['wrapper_close'], ENV['wrapper'])

@@ -246,6 +246,7 @@ module AnnotateModels
 
       cols = cols.sort_by(&:name) if options[:sort]
       cols = classified_sort(cols) if options[:classified_sort]
+      cols = classified_sort_updated(cols) if options[:classified_sort_updated]
       cols.each do |col|
         col_type = get_col_type(col)
         attrs = []
@@ -874,6 +875,30 @@ module AnnotateModels
 
       ([id] << rest_cols << timestamps << associations).flatten.compact
     end
+
+
+    def classified_sort_updated(cols)
+      rest_cols = []
+      timestamps = []
+      associations = []
+      id = nil
+
+      cols.each do |c|
+        if c.name.eql?('id')
+          id = c
+        elsif c.name.eql?('created_at') || c.name.eql?('updated_at')
+          timestamps << c
+        elsif c.name[-3, 3].eql?('_id')
+          associations << c
+        else
+          rest_cols << c
+        end
+      end
+      [rest_cols, timestamps, associations].each { |a| a.sort_by!(&:name) }
+
+      ([id]  << associations << rest_cols << timestamps).flatten.compact
+    end
+
 
     private
 
