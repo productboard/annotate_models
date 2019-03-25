@@ -246,7 +246,7 @@ module AnnotateModels
 
       cols = cols.sort_by(&:name) if options[:sort]
       cols = classified_sort(cols) if options[:classified_sort]
-      cols = classified_sort_updated(cols) if options[:classified_sort_updated]
+      cols = classified_sort_fks_second(cols) if options[:classified_sort_fks_second]
       cols.each do |col|
         col_type = get_col_type(col)
         attrs = []
@@ -877,7 +877,7 @@ module AnnotateModels
     end
 
 
-    def classified_sort_updated(cols)
+    def classified_sort_fks_second(cols)
       rest_cols = []
       timestamps = []
       associations = []

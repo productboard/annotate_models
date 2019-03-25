@@ -43,7 +43,7 @@ if Rails.env.development?
       'sort'                      => 'false',
       'force'                     => 'false',
       'classified_sort'           => 'false',
-      'classified_sort_updated'   => 'true',
+      'classified_sort_fks_second'   => 'true',
       'trace'                     => 'false',
       'wrapper_open'              => nil,
       'wrapper_close'             => nil,

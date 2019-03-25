@@ -914,7 +914,7 @@ EOS
       EOS
     end
 
-    describe 'classified_sort_updated option' do
+    describe 'classified_sort_fks_second option' do
       mocked_columns_without_id = [
         [:active, :boolean, { limit: 1 }],
         [:name, :string, { limit: 50 }],

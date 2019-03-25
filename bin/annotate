@@ -148,9 +148,9 @@ OptionParser.new do |opts|
     ENV['classified_sort'] = 'yes'
   end
 
-  opts.on('--classified-sort-updated',
+  opts.on('--classified-sort-fks-second',
           "Sort columns alphabetically, but first goes id, then the association columns, then the rest columns and then the timestamp columns ") do |dir|
-    ENV['classified_sort_updated'] = 'yes'
+    ENV['classified_sort_fks_second'] = 'yes'
   end
 
   opts.on('-R', '--require path',
