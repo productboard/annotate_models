@@ -153,6 +153,16 @@ OptionParser.new do |opts|
     ENV['classified_sort_updated'] = 'yes'
   end
 
+  opts.on('--custom-sort',
+          "Sort columns by order given in --custom-sort-order parameter") do |dir|
+    ENV['custom_sort'] = 'yes'
+  end
+
+  opts.on('--custom-sort-order STR', 'Order for custom annotation, must contain id, rest_cols, timestamps, associations eg. "id, associations, rest_cols, timestamps" ') do |p|
+    ENV['wrapper_close'] = p
+  end
+
+
   opts.on('-R', '--require path',
           "Additional file to require before loading models, may be used multiple times") do |path|
     if !ENV['require'].blank?
