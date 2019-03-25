@@ -1,6 +1,5 @@
 !/spec/integration/*/log/.gitkeep
 !/spec/integration/*/tmp/.gitkeep
-*.gem
 .DS_Store
 .bundle
 .gems

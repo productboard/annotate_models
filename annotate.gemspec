@@ -39,7 +39,7 @@ Gem::Specification.new do |s|
   s.licenses = ['Ruby']
   s.require_paths = ['lib']
   s.rubyforge_project = 'annotate'
-  s.rubygems_version = '2.1.11'
+  s.rubygems_version = '2.7.5'
   s.summary = 'Annotates Rails Models, routes, fixtures, and others based on the database schema.'
 
   s.specification_version = 4 if s.respond_to? :specification_version
