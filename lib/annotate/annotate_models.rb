@@ -600,6 +600,14 @@ module AnnotateModels
     # Retrieve loaded model class
     def get_loaded_model(model_path, file)
       unless skip_subdirectory_model_load
+        if defined?(Packs)
+          # adds pack namespace to model path
+          pack_name = file[/(packs\/[^\/]+)\//, 1]
+          pack = Packs.find(pack_name) if pack_name
+          model_namespace = pack_name[/packs\/(.+)/, 1] if pack && pack.raw_hash.dig('metadata', 'automatic_pack_namespace') == true
+          model_path = "#{model_namespace}/#{model_path}" if model_namespace
+        end
+
         loaded_model_class = get_loaded_model_by_path(model_path)
         return loaded_model_class if loaded_model_class
       end
